@@ -6,7 +6,7 @@
 /*   By: elima-me <elima-me@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 22:20:21 by elima-me          #+#    #+#             */
-/*   Updated: 2021/05/26 14:23:43 by elima-me         ###   ########.fr       */
+/*   Updated: 2021/05/26 17:04:27 by elima-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t n)
 
 	len = ft_strlen(src);
 	i = 0;
-	if (src[i] == '\0')
+	if (src == (NULL))
 		return (0);
 	if (n > 0)
 	{
