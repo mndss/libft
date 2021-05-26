@@ -26,7 +26,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t n);
 size_t	ft_strlen(const char *str);
 int		ft_strncmp(unsigned char *str1, unsigned char *str2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
-char	ft_strrchr(const char *s, int c);
+char	*ft_strrchr(const char *s, int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 
