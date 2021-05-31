@@ -6,7 +6,7 @@
 /*   By: elima-me <elima-me@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 18:06:40 by elima-me          #+#    #+#             */
-/*   Updated: 2021/05/30 17:08:11 by elima-me         ###   ########.fr       */
+/*   Updated: 2021/05/31 17:22:02 by elima-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,11 @@ char	**ft_split(char const *s, char c)
 	int		i;
 
 	count_words = check_words(s, c);
-	words = (char **)ft_calloc(sizeof(char *), (count_words + 1));
+	if (!(words = (char **)ft_calloc(sizeof(char *), (count_words + 1))))
+		return (NULL);
 	i = 0;
 	words2 = words;
-	while (s[i] != '\0')
+	while (s[i])
 	{
 		if (s[i] == c)
 		{
@@ -76,6 +77,7 @@ char	**ft_split(char const *s, char c)
 			words++;
 		}
 	}
+	*words = NULL;
 	words = words2;
 	return (words);
 }
