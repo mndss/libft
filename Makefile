@@ -46,11 +46,11 @@ $(OBJ): $(SRC)
 	$(CC) $(FLAGS) -c $(SRC)
 
 clean:
-	rm *.o
+	$(RM) $(OBJ)
 
 fclean:	clean
 	$(RM) $(NAME)
 
-re: fclean all 
+re: fclean all
 
 .PHONY: all clean fclean

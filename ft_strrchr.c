@@ -6,7 +6,7 @@
 /*   By: elima-me <elima-me@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 19:08:03 by elima-me          #+#    #+#             */
-/*   Updated: 2021/05/31 13:18:10 by elima-me         ###   ########.fr       */
+/*   Updated: 2021/05/31 13:56:01 by elima-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	size_t	i;
-
-	i = ft_strlen(s);
-	while (*s)
+	
+	while (s[i])
 	{
-		if (*s == c)
-				return ((char *)s);
-		s++;
+		if (s[i] == c)
+			return ((char *)s + i);
+		i++;
 	}
 	return (NULL);
 }
