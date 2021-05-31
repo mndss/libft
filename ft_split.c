@@ -6,7 +6,7 @@
 /*   By: elima-me <elima-me@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 18:06:40 by elima-me          #+#    #+#             */
-/*   Updated: 2021/05/31 17:22:02 by elima-me         ###   ########.fr       */
+/*   Updated: 2021/05/31 18:43:11 by elima-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,24 @@ static size_t	size_words(const char *s, char c)
 	return (len);
 }
 
-char	**ft_split(char const *s, char c)
+void	freeall(char **s)
 {
-	int		count_words;
-	char	**words;
-	char	**words2;
-	int		i;
+	int	i;
 
-	count_words = check_words(s, c);
-	if (!(words = (char **)ft_calloc(sizeof(char *), (count_words + 1))))
-		return (NULL);
 	i = 0;
-	words2 = words;
+	while (s[i])
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+}
+
+char	**split2(char const *s, char c, char **words, char **words2)
+{
+	int	i;
+
+	i = 0;
 	while (s[i])
 	{
 		if (s[i] == c)
@@ -73,11 +79,31 @@ char	**ft_split(char const *s, char c)
 		if (s[i] != c)
 		{
 			*words = ft_substr(&s[i], 0, size_words(&s[i], c));
+			if (!words)
+			{
+				freeall(words);
+				return (NULL);
+			}
 			i = i + size_words(&s[i], c);
 			words++;
 		}
 	}
 	*words = NULL;
 	words = words2;
+	return (words);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		count_words;
+	char	**words;
+
+	count_words = check_words(s, c);
+	words = (char **)ft_calloc(sizeof(char *), (count_words + 1));
+	if (!words)
+		return (NULL);
+	words = split2(s, c, words, words);
+	if (words == NULL)
+		return (NULL);
 	return (words);
 }
