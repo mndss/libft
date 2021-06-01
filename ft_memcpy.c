@@ -6,7 +6,7 @@
 /*   By: elima-me <elima-me@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 21:59:46 by elima-me          #+#    #+#             */
-/*   Updated: 2021/05/20 19:36:42 by elima-me         ###   ########.fr       */
+/*   Updated: 2021/05/31 20:41:48 by elima-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *dest, void const *src, size_t n)
 	d = dest;
 	s = src;
 	i = 0;
+	if (!(dest) && !(src) && (n > 0))
+		return (NULL);
 	while (i < n)
 	{
 		d[i] = s[i];

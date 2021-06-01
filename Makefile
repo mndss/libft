@@ -1,6 +1,6 @@
-NAME = libft.a
+NAME = 	libft.a
 FLAGS = -Wall -Werror -Wextra 
-CC = gcc
+CC = 	gcc
 OBJ =	$(SRC:.c=.o)
 SRC =	ft_atoi.c \
 		ft_bzero.c \
@@ -35,7 +35,7 @@ SRC =	ft_atoi.c \
 		ft_strtrim.c \
 		ft_substr.c \
 		ft_tolower.c \
-		ft_toupper.c \
+		ft_toupper.c 
 
 all: $(NAME)
 
@@ -53,4 +53,4 @@ fclean:	clean
 
 re: fclean all
 
-.PHONY: all clean fclean
+.PHONY: all clean fclean re
