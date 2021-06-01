@@ -6,7 +6,7 @@
 /*   By: elima-me <elima-me@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 18:00:15 by elima-me          #+#    #+#             */
-/*   Updated: 2021/05/26 21:02:40 by elima-me         ###   ########.fr       */
+/*   Updated: 2021/06/01 18:21:27 by elima-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ char	*ft_itoa(int n)
 
 	len = ft_check_len(n);
 	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
 	str[len] = '\0';
 	neg = 0;
 	if (n < 0)

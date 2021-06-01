@@ -6,7 +6,7 @@
 /*   By: elima-me <elima-me@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 17:19:47 by elima-me          #+#    #+#             */
-/*   Updated: 2021/05/30 19:20:20 by elima-me         ###   ########.fr       */
+/*   Updated: 2021/06/01 18:23:25 by elima-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	len;
 	unsigned int	i;
 
+	if (s == NULL)
+		return (NULL);
 	len = ft_strlen(s);
 	str = (char *)malloc(sizeof(char) * len + 1);
+	if (!str)
+		return (NULL);
 	i = 0;
 	if (str == (NULL))
 		return (NULL);

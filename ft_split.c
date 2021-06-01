@@ -6,7 +6,7 @@
 /*   By: elima-me <elima-me@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 18:06:40 by elima-me          #+#    #+#             */
-/*   Updated: 2021/05/31 18:43:11 by elima-me         ###   ########.fr       */
+/*   Updated: 2021/06/01 18:18:45 by elima-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static size_t	size_words(const char *s, char c)
 	return (len);
 }
 
-void	freeall(char **s)
+static void	freeall(char **s)
 {
 	int	i;
 
@@ -64,7 +64,7 @@ void	freeall(char **s)
 	free(s);
 }
 
-char	**split2(char const *s, char c, char **words, char **words2)
+static char	**fill_array(char const *s, char c, char **words, char **words2)
 {
 	int	i;
 
@@ -89,8 +89,7 @@ char	**split2(char const *s, char c, char **words, char **words2)
 		}
 	}
 	*words = NULL;
-	words = words2;
-	return (words);
+	return (words2);
 }
 
 char	**ft_split(char const *s, char c)
@@ -98,11 +97,13 @@ char	**ft_split(char const *s, char c)
 	int		count_words;
 	char	**words;
 
+	if (s == NULL)
+		return (NULL);
 	count_words = check_words(s, c);
 	words = (char **)ft_calloc(sizeof(char *), (count_words + 1));
 	if (!words)
 		return (NULL);
-	words = split2(s, c, words, words);
+	words = fill_array(s, c, words, words);
 	if (words == NULL)
 		return (NULL);
 	return (words);

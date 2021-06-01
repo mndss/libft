@@ -45,6 +45,10 @@ $(NAME): $(OBJ)
 $(OBJ): $(SRC) 
 	$(CC) $(FLAGS) -c $(SRC)
 
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ)
+
 clean:
 	$(RM) $(OBJ)
 

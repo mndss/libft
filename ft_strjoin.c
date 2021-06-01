@@ -6,7 +6,7 @@
 /*   By: elima-me <elima-me@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 17:08:13 by elima-me          #+#    #+#             */
-/*   Updated: 2021/05/26 17:17:56 by elima-me         ###   ########.fr       */
+/*   Updated: 2021/06/01 15:35:59 by elima-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		count;
 
+	if (!s1 || !s2)
+		return (NULL);
 	i = 0;
 	count = 0;
 	new = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!new)
+		return (NULL);
 	while (s1[i] != '\0')
 	{
 		new[i] = s1[i];
