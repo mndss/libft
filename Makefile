@@ -46,12 +46,16 @@ SRC =	ft_atoi.c \
 		ft_tolower.c \
 		ft_toupper.c 
 
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar -rcs $(NAME) $(OBJ)
 
 $(OBJ): $(SRC) 
+	$(CC) $(FLAGS) -c $(SRC)
+
+bonus: $(SRC)
 	$(CC) $(FLAGS) -c $(SRC)
 
 so:
