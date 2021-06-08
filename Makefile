@@ -1,7 +1,7 @@
 NAME = 	libft.a
 FLAGS = -Wall -Werror -Wextra 
 CC = 	gcc
-OBJ =	$(SRC:.c=.o)
+OBJ_SRC =	$(SRC:.c=.o)
 SRC =	ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
@@ -11,15 +11,6 @@ SRC =	ft_atoi.c \
 		ft_isdigit.c \
 		ft_isprint.c \
 		ft_itoa.c \
-		ft_lstadd_back.c \
-		ft_lstadd_front.c \
-		ft_lstclear.c \
-		ft_lstdelone.c \
-		ft_lstiter.c \
-		ft_lstlast.c \
-		ft_lstmap.c \
-		ft_lstnew.c \
-		ft_lstsize.c \
 		ft_memchr.c \
 		ft_memcmp.c \
 		ft_memccpy.c \
@@ -46,24 +37,38 @@ SRC =	ft_atoi.c \
 		ft_tolower.c \
 		ft_toupper.c 
 
+BONUS = ft_lstadd_back.c \
+		ft_lstadd_front.c \
+		ft_lstclear.c \
+		ft_lstdelone.c \
+		ft_lstiter.c \
+		ft_lstlast.c \
+		ft_lstmap.c \
+		ft_lstnew.c \
+		ft_lstsize.c 
+
+OBJ_BONUS = $(BONUS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar -rcs $(NAME) $(OBJ)
+$(NAME): $(OBJ_SRC)
+	ar -rcs $(NAME) $(OBJ_SRC)
 
-$(OBJ): $(SRC) 
+$(OBJ_SRC): $(SRC) 
 	$(CC) $(FLAGS) -c $(SRC)
 
-bonus: $(SRC)
+bonus: $(OBJ_BONUS)
+	ar -rcs bonus $(OBJ_BONUS)
+
+$(OBJ_BONUS): $(SRC)
 	$(CC) $(FLAGS) -c $(SRC)
 
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
+	gcc -nostartfiles -shared -o libft.so $(OBJ_SRC)
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ_SRC)
 
 fclean:	clean
 	$(RM) $(NAME)
