@@ -58,7 +58,7 @@ $(OBJ_SRC): $(SRC)
 	$(CC) $(FLAGS) -c $(SRC)
 
 bonus: $(OBJ_BONUS)
-	ar -rcs bonus $(OBJ_BONUS)
+	ar -rcs $(NAME) $(OBJ_BONUS)
 
 $(OBJ_BONUS): $(SRC)
 	$(CC) $(FLAGS) -c $(SRC)
@@ -68,7 +68,7 @@ so:
 	gcc -nostartfiles -shared -o libft.so $(OBJ_SRC)
 
 clean:
-	$(RM) $(OBJ_SRC)
+	$(RM) $(OBJ_SRC) $(OBJ_BONUS)
 
 fclean:	clean
 	$(RM) $(NAME)
