@@ -6,9 +6,11 @@
 /*   By: elima-me <elima-me@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:45:49 by elima-me          #+#    #+#             */
-/*   Updated: 2021/06/08 14:16:43 by elima-me         ###   ########.fr       */
+/*   Updated: 2021/08/12 17:23:34 by elima-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {

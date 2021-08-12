@@ -1,6 +1,6 @@
 NAME = 	libft.a
 FLAGS = -Wall -Werror -Wextra 
-CC = 	gcc
+CC = 	clang
 OBJ_SRC =	$(SRC:.c=.o)
 SRC =	ft_atoi.c \
 		ft_bzero.c \
@@ -60,8 +60,8 @@ $(OBJ_SRC): $(SRC)
 bonus: $(OBJ_BONUS)
 	ar -rcs $(NAME) $(OBJ_BONUS)
 
-$(OBJ_BONUS): $(SRC)
-	$(CC) $(FLAGS) -c $(SRC)
+$(OBJ_BONUS): $(BONUS)
+	$(CC) $(FLAGS) -c $(BONUS)
 
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
@@ -71,8 +71,8 @@ clean:
 	$(RM) $(OBJ_SRC) $(OBJ_BONUS)
 
 fclean:	clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) bonus
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus so 

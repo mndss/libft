@@ -6,21 +6,20 @@
 /*   By: elima-me <elima-me@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 18:28:03 by elima-me          #+#    #+#             */
-/*   Updated: 2021/06/10 14:42:39 by elima-me         ###   ########.fr       */
+/*   Updated: 2021/08/12 17:21:28 by elima-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strdup(const char *s)
 {
-	int		size_str;
+	int		i;
 	char	*new;
 	size_t	count;
 
-	size_str = (ft_strlen(s));
-	new = (char *)malloc(sizeof(char) * (size_str + 1));
+	i = (ft_strlen(s));
+	new = (char *)malloc(sizeof(char) * (i + 1));
 	count = 0;
 	if (!new)
 		return (NULL);

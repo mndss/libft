@@ -6,11 +6,11 @@
 /*   By: elima-me <elima-me@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/15 20:16:16 by elima-me          #+#    #+#             */
-/*   Updated: 2021/06/08 14:18:24 by elima-me         ###   ########.fr       */
+/*   Updated: 2021/08/12 17:21:37 by elima-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *str)
 {
